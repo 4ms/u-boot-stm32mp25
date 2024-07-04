@@ -38,9 +38,22 @@
 		"run distro_bootcmd;" \
 	"fi;\0"
 
+#define ST_STM32MP_BAREMETAL_BOOTCMD "bootcmd_baremetal_stm32mp=" \
+	"echo \"Boot baremetal over ${boot_device}${boot_instance}!\";" \
+	"run env_check;" \
+	"if test ${boot_device} = mmc;" \
+	"then " \
+		"mmc dev 0;" \
+		"fatload mmc 0:4 0x88000000 main.uimg;" \
+		"bootm 0x88000000;" \
+	"else " \
+		"echo \"Sorry booting from ${boot_device}${boot_instance} not supported yet!\";" \
+	"fi;" \
+
 #undef CONFIG_EXTRA_ENV_SETTINGS
 #define CONFIG_EXTRA_ENV_SETTINGS \
 	STM32MP_MEM_LAYOUT \
+	ST_STM32MP_BAREMETAL_BOOTCMD \
 	ST_STM32MP25_BOOTCMD \
 	BOOTENV \
 	STM32MP_EXTRA \

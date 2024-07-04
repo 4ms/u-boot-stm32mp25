@@ -77,7 +77,7 @@
  * for other boot, use the default distro order in ${boot_targets}
  */
 #define STM32MP_BOOTCMD "bootcmd_stm32mp=" \
-	"echo \"Boot over ${boot_device}${boot_instance}!\";" \
+	"echo \"Boot Over ${boot_device}${boot_instance}!\";" \
 	"if test ${boot_device} = serial || test ${boot_device} = usb;" \
 	"then stm32prog ${boot_device} ${boot_instance}; " \
 	"else " \
