@@ -49,7 +49,7 @@ arch-ext-dtbs: arch-dtbs
 		echo "  EXT_DTS in $(EXT_DTS)";\
 		$(MAKE) $(build)=$(EXT_DTS) dtbs && \
 		cp $(EXT_DTS)/*.dtb arch/$(ARCH)/dts/ || \
-		/bin/true) || /bin/true
+		true) || true
 
 ifeq ($(CONFIG_SPL_BUILD),y)
 obj-$(CONFIG_OF_EMBED) := dt-spl.dtb.o
