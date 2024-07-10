@@ -1,3 +1,0 @@
-[submodule "arch/arm/dts/external-dt"]
-	path = arch/arm/dts/external-dt
-	url = https://github.com/STMicroelectronics/dt-stm32mp
