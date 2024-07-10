@@ -96,10 +96,10 @@
 	"if test ${boot_device} = mmc;" \
 	"then " \
 		"mmc dev 0;" \
-		"fatload mmc 0:4 0x88000000 main.uimg;" \
+		"fatload mmc 0:b 0x88000000 main.uimg;" \
 		"bootm 0x88000000;" \
 	"else " \
-		"echo \"Sorry booting from ${boot_device}${boot_instance} not supported yet!\";" \
+		"echo \"Sorry booting from ${boot_device}${boot_instance} not supported yet\";" \
 	"fi;" \
 
 #ifndef STM32MP_BOARD_EXTRA_ENV
