@@ -11,6 +11,7 @@ To build: (assuming aarch64-none-elf-gcc is on PATH, otherwise put the full path
 export CROSS_COMPILE=aarch64-none-elf-
 export LDFLAGS="-L/opt/homebrew/opt/openssl@1.1/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/openssl@1.1/include"
+export HOSTCFLAGS="-I/opt/homebrew/opt/openssl@1.1/include"
 export PKG_CONFIG_PATH="/opt/homebrew/opt/openssl@1.1/lib/pkgconfig"
 
 git clone https://github.com/4ms/u-boot-stm32mp25
