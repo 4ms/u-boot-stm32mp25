@@ -7,18 +7,20 @@ Requires openssl 1.1.1 (does not work with 3.x)
 
 To build: (assuming aarch64-none-elf-gcc is on PATH, otherwise put the full path here)
 
-```
-export CROSS_COMPILE=aarch64-none-elf-
+```bash
+git clone https://github.com/4ms/u-boot-stm32mp25
+cd u-boot-stm32mp25
+mkdir -p ../build-baremetal-uboot
+
+### macos only:
 export LDFLAGS="-L/opt/homebrew/opt/openssl@1.1/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/openssl@1.1/include"
 export HOSTCFLAGS="-I/opt/homebrew/opt/openssl@1.1/include"
 export PKG_CONFIG_PATH="/opt/homebrew/opt/openssl@1.1/lib/pkgconfig"
+###
 
-git clone https://github.com/4ms/u-boot-stm32mp25
-cd u-boot-stm32mp25
-mkdir -p ../build-baremetal-uboot
-make stm32mp25_baremetal_defconfig  O=../build-baremetal-uboot
-make all O=../build-baremetal-uboot
+make stm32mp25_baremetal_defconfig  O=../build-baremetal-uboot CROSS_COMPILE=aarch64-none-elf-
+make all O=../build-baremetal-uboot CROSS_COMPILE=aarch64-none-elf-
 ```
 
 To use: see https://github.com/4ms/stm32mp2-baremetal project
